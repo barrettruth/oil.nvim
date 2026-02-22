@@ -43,7 +43,6 @@ luac.out
 .envrc
 .testenv/
 doc/tags
-scripts/nvim-typecheck-action
 scripts/benchmark.nvim
 perf/tmp/
 profile.json
