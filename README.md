@@ -84,7 +84,7 @@ Open a directory with `nvim .`. Use `<CR>` to open a file/directory, and `-` to 
 
 ## FAQ
 
-**Q: How do I migrate from `require("oil").setup()` to `vim.g.oil`?**
+**Q: How do I migrate from `stevearc/oil.nvim` to `barrettruth/oil.nvim`?**
 
 **A:** Replace your `setup()` call with a `vim.g.oil` assignment. The option
 tables are identical:
