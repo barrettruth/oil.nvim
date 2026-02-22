@@ -118,9 +118,7 @@ Replace your `setup()` call with a `vim.g.oil` assignment. For example, with
 Vinegar was taken. Let's be oil.
 Plus, I think it's pretty slick ;)
 
-**Q: Why would I want to use oil vs any other plugin?**
-
-**A:**
+**Why would I want to use oil vs any other plugin?**
 
 - You like to use a netrw-like view to browse directories (as opposed to a file tree)
 - AND you want to be able to edit your filesystem like a buffer
@@ -130,11 +128,9 @@ If you don't need those features specifically, check out the alternatives listed
 
 **Q: Can oil display files as a tree view?**
 
-**A:** No. A tree view would require a completely different methodology, necessitating a complete rewrite.
+No. A tree view would require a completely different methodology, necessitating a complete rewrite.
 
-**Q: What are some alternatives?**
-
-**A:**
+**What are some alternatives?**
 
 - [the original](https://github.com/stevearc/oil.nvim): the lesser-maintained but
   official `oil.nvim`
