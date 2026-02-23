@@ -965,6 +965,32 @@ M.get_icon_provider = function()
       end
     end
   end
+
+  local has_nonicons, nonicons = pcall(require, 'nonicons')
+  if has_nonicons and type(nonicons.get) == 'function' then
+    return function(type, name, conf, ft)
+      if type == 'directory' then
+        local icon = nonicons.get('file-directory')
+        return icon or (conf and conf.directory or ''), 'OilDirIcon'
+      else
+        if ft then
+          local ft_icon = nonicons.get(ft)
+          if ft_icon then
+            return ft_icon, 'OilFileIcon'
+          end
+        end
+        local ext = name:match('%.([^%.]+)$')
+        if ext then
+          local ext_icon = nonicons.get(ext)
+          if ext_icon then
+            return ext_icon, 'OilFileIcon'
+          end
+        end
+        local icon = nonicons.get('file')
+        return icon or (conf and conf.default_file or ''), 'OilFileIcon'
+      end
+    end
+  end
 end
 
 ---Read a buffer into a scratch buffer and apply syntactic highlighting when possible
