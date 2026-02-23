@@ -950,7 +950,7 @@ M.get_icon_provider = function()
     local _, devicons = pcall(require, 'nvim-web-devicons')
     return function(type, name, conf, ft)
       if type == 'directory' then
-        local icon = nonicons.get('file-directory')
+        local icon = nonicons.get('file-directory-fill')
         return icon or (conf and conf.directory or ''), 'OilDirIcon'
       end
       local hl = devicons and select(2, devicons.get_icon(name)) or 'OilFileIcon'
