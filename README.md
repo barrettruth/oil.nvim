@@ -86,7 +86,6 @@ Drew Neil:
 **Q: What are some alternatives?**
 
 - [stevearc/oil.nvim](https://github.com/stevearc/oil.nvim): the original
-  oil.nvim
 - [mini.files](https://github.com/nvim-mini/mini.nvim/blob/main/readmes/mini-files.md):
   cross-directory filesystem-as-buffer with a column view
 - [vim-vinegar](https://github.com/tpope/vim-vinegar): the granddaddy of
