@@ -945,27 +945,6 @@ M.get_icon_provider = function()
     end
   end
 
-  -- fallback to `nvim-web-devicons`
-  local has_devicons, devicons = pcall(require, 'nvim-web-devicons')
-  if has_devicons then
-    return function(type, name, conf, ft)
-      if type == 'directory' then
-        return conf and conf.directory or '', 'OilDirIcon'
-      else
-        if ft then
-          local ft_icon, ft_hl = devicons.get_icon_by_filetype(ft)
-          if ft_icon and ft_icon ~= '' then
-            return ft_icon, ft_hl
-          end
-        end
-        local icon, hl = devicons.get_icon(name)
-        hl = hl or 'OilFileIcon'
-        icon = icon or (conf and conf.default_file or '')
-        return icon, hl
-      end
-    end
-  end
-
   local has_nonicons, nonicons = pcall(require, 'nonicons')
   if has_nonicons and type(nonicons.get) == 'function' then
     return function(type, name, conf, ft)
@@ -988,6 +967,26 @@ M.get_icon_provider = function()
         end
         local icon = nonicons.get('file')
         return icon or (conf and conf.default_file or ''), 'OilFileIcon'
+      end
+    end
+  end
+
+  local has_devicons, devicons = pcall(require, 'nvim-web-devicons')
+  if has_devicons then
+    return function(type, name, conf, ft)
+      if type == 'directory' then
+        return conf and conf.directory or '', 'OilDirIcon'
+      else
+        if ft then
+          local ft_icon, ft_hl = devicons.get_icon_by_filetype(ft)
+          if ft_icon and ft_icon ~= '' then
+            return ft_icon, ft_hl
+          end
+        end
+        local icon, hl = devicons.get_icon(name)
+        hl = hl or 'OilFileIcon'
+        icon = icon or (conf and conf.default_file or '')
+        return icon, hl
       end
     end
   end
